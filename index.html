@@ -7,6 +7,15 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.__loadProd = () => {
+        const prodScript = document.createElement('script')
+        prodScript.type = 'module'
+        prodScript.src = '/dist/assets/main.js'
+        document.head.appendChild(prodScript)
+      }
+    </script>
+    <script type="module" src="/src/main.tsx" onerror="window.__loadProd()"></script>
+    <noscript>JavaScript is required to run this application.</noscript>
   </body>
 </html>
