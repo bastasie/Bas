@@ -104,6 +104,12 @@ export class ModernUIEngine {
     this.ctx.font = '16px Inter, sans-serif'
     this.ctx.fillText('Operational readiness · 21 applications · 4K mode', 64, 90)
 
+    const scale = Math.min(this.displayWidth / this.width, this.displayHeight / this.height)
+    this.ctx.fillStyle = '#64748b'
+    this.ctx.font = '12px Inter, sans-serif'
+    this.ctx.fillText(`Scale ${scale.toFixed(2)}x`, this.width - 320, 92)
+
+    
     const capsuleX = this.width - 300
     this.drawCapsule(capsuleX, 38, 220, 44, '#1d4ed8')
     this.ctx.fillStyle = '#e2e8f0'
